@@ -1,0 +1,41 @@
+﻿@page "/Imageboard"
+
+@using Frontend.Data
+@using Hayden.Models
+@inject ImageBoardService ForecastService
+
+@if (forecasts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Post Number</th>
+                <th>Filename</th>
+                <th>Comment</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Post ActivePost in forecasts)
+            {
+                <tr>
+                    <td>@ActivePost.PostNumber</td>
+                    <td>@ActivePost.OriginalFilename</td>
+                    <td>@((MarkupString)ActivePost.Comment)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private Post[] forecasts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        forecasts = await ForecastService.GetForecastAsync("v", "488074265");
+    }
+}

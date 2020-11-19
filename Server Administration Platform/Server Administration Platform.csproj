@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>ServerAdministrationPlatform</RootNamespace>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\4Chan Crawler\4Chan Crawler.csproj" />
+    <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\Work Balancer\Server.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Administration Platform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Administration Platform.Designer.cs">
+      <DependentUpon>Administration Platform.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Create Worker Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Create Worker Form.Designer.cs">
+      <DependentUpon>Create Worker Form.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>
